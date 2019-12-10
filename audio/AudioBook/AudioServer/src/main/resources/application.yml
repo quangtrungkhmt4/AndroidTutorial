@@ -1,0 +1,72 @@
+server:
+  port: 9094
+    
+security:
+    user:
+      name: "kyntq"
+      password: "kyntq"
+
+spring:
+    application:
+        name: "Tsubaki Meet People Service"
+    boot:
+        admin:
+            url: "http://localhost:9090"
+            username: ${security.user.name}
+            password: ${security.user.password} 
+            client:
+                metadata:
+                    user:
+                        name: ${security.user.name}
+                        password: ${security.user.password}
+  
+  
+logging:
+  level:
+    org.springframework.web: ERROR
+    vn.com.ntqsolution: DEBUG
+  file: /opt/log/MeetPeople-Service.log
+
+application:
+  umsServerHost: 127.0.0.1
+  umsServerPort: 8090
+  database:
+    mongodb:
+      host: localhost
+      port: 27017
+      connectionPerHost: 1500
+      user: dbadmin
+      password: adminntq
+      authenticationDatabase: admin
+  elasticsearch:
+    host: localhost
+    port: 9300
+    connectTimeout: 10000
+    connectionRequestTimeout: 10000
+    socketTimeout: 10000
+    maxRetryTimeoutMillis: 60000
+    numberOfBulkWorker: 1
+    bulkUpdateDelayTime: 100
+    bulkMaxRequestNumber: 200
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: 123456123
+    
+    context:   
+      exchangeName: exchange.context
+      meetpeople:
+        requestQueueName: context.meetpeople.request
+        requestQueueRoutingKey: routingKey.context.meetpeople.request
+        responseQueueName: context.meetpeople.response
+        responseQueueRoutingKey: routingKey.context.meetpeople.response 
+        
+    cache:
+      exchangeName: exchange.cache
+      routingKey: routingKey.cache
+      queue: cache.meetpeople
+      
+  thread:
+    cacheContextThreadNumber: 1
+    httpHandlerNumber: 20
