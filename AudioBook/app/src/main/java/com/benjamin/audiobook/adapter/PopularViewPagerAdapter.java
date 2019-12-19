@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +24,15 @@ public class PopularViewPagerAdapter extends PagerAdapter {
     private Context context;
     private int layout;
     private List<Popular> arrItem;
+    private static OnItemClickListener clickListener;
+
+    public interface OnItemClickListener{
+        void onItemClick(View view, int posititon);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        clickListener = listener;
+    }
 
     public PopularViewPagerAdapter(Context context, int layout, List<Popular> arrItem) {
         this.context = context;
@@ -43,10 +53,10 @@ public class PopularViewPagerAdapter extends PagerAdapter {
     @SuppressLint("SetTextI18n")
     @NonNull
     @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
+    public Object instantiateItem(@NonNull ViewGroup container, final int position) {
         Popular item = arrItem.get(position);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(layout, container, false);
+        final View view = inflater.inflate(layout, container, false);
         ImageView img = view.findViewById(R.id.imgItemPopular);
         TextView tvDuration = view.findViewById(R.id.tvDuration);
         TextView tvListen = view.findViewById(R.id.tvViews);
@@ -56,6 +66,15 @@ public class PopularViewPagerAdapter extends PagerAdapter {
         tvDuration.setText(item.getDuration());
         tvListen.setText(item.getViews() + " " + context.getString(R.string.listen));
         tvName.setText(item.getName());
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (clickListener != null){
+                    clickListener.onItemClick(view, position);
+                }
+            }
+        });
 
         container.addView(view);
 

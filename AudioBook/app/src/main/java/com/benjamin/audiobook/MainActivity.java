@@ -6,6 +6,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -14,6 +15,8 @@ import com.benjamin.audiobook.fragment.HistoryFragment;
 import com.benjamin.audiobook.fragment.HomeFragment;
 import com.benjamin.audiobook.util.ScrollHandler;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,5 +75,11 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         //Close the application when back button is pressed
         finish();
+    }
+
+    public void switchActivityWithData(Class cls, Object obj){
+        Intent intent = new Intent(this, cls);
+        intent.putExtra("book_info", (Serializable) obj);
+        startActivity(intent);
     }
 }

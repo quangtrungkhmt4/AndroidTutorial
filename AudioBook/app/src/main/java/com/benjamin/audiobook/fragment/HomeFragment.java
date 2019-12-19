@@ -12,7 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.benjamin.audiobook.InfoActivity;
 import com.benjamin.audiobook.MainActivity;
 import com.benjamin.audiobook.R;
 import com.benjamin.audiobook.adapter.BookHorizontalAdapter;
@@ -25,7 +27,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements PopularViewPagerAdapter.OnItemClickListener {
 
     private static final String HORROR_ID = "5def511c64dee93d5e56437f";
     private static final String SHORT_ID = "5def511c64dee93d5e564380";
@@ -88,6 +90,7 @@ public class HomeFragment extends Fragment {
         viewPager.setPageMargin(30);
         adapter = new PopularViewPagerAdapter(getContext(), R.layout.item_popular, populars);
         viewPager.setAdapter(adapter);
+        adapter.setOnItemClickListener(this);
 
         horrorAdapter = new BookHorizontalAdapter(horrors, getContext());
         LinearLayoutManager horizontalLayout = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -120,4 +123,8 @@ public class HomeFragment extends Fragment {
 
     }
 
+    @Override
+    public void onItemClick(View view, int posititon) {
+        mainActivity.switchActivityWithData(InfoActivity.class, populars.get(posititon));
+    }
 }

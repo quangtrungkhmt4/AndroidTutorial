@@ -55,7 +55,7 @@
 
 <!--        truyen ma-->
         <TextView
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
             style="?android:attr/textAppearanceMedium"
             android:id="@+id/tvFirstCategory"
@@ -89,7 +89,7 @@
 <!--        truyen ngắn-->
 
         <TextView
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
             style="?android:attr/textAppearanceMedium"
             android:id="@+id/tvSecondCategory"
@@ -123,7 +123,7 @@
 <!--        truyen nguyen ngoc ngan-->
 
         <TextView
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
             style="?android:attr/textAppearanceMedium"
             android:id="@+id/tvThirdCategory"
@@ -157,7 +157,7 @@
 <!--        long story-->
 
         <TextView
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
             style="?android:attr/textAppearanceMedium"
             android:id="@+id/tvFourthCategory"
@@ -191,7 +191,7 @@
 <!--        truyen kiem hiep-->
 
         <TextView
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
             style="?android:attr/textAppearanceMedium"
             android:id="@+id/tvFifthCategory"
