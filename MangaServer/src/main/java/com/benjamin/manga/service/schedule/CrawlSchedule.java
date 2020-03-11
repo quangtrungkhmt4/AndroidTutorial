@@ -44,6 +44,7 @@ public class CrawlSchedule {
     @Scheduled(fixedDelay = 3600000)
     private void crawlData() throws IOException {
         System.out.println("-------Started crawl-------");
+
 //        crawlCategories();
 //        crawlManga();
 //        crawlMangaAdachi();

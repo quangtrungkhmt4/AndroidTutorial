@@ -1,6 +1,8 @@
 package com.benjamin.manga.controller;
 
+import com.benjamin.manga.constant.ResponseCode;
 import com.benjamin.manga.model.Manga;
+import com.benjamin.manga.request.AbstractRequest;
 import com.benjamin.manga.response.ResponseEntity;
 import com.benjamin.manga.service.base.MangaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,16 +20,20 @@ public class MangaController extends  AbstractController {
     @Autowired
     private MangaService mangaService;
 
-    @GetMapping("/mangas")
-    public String getListManga(@RequestParam("page") int page, @RequestParam("take") int take){
-        System.out.println("page: " + page + " - take: " + take);
-        List<Manga> mangas = (List<Manga>) mangaService.getAllEntities(page, take);
-        return new ResponseEntity(mangas).toString();
+//    @GetMapping("/mangas")
+//    public String getListManga(@RequestParam("page") int page, @RequestParam("take") int take){
+//        System.out.println("page: " + page + " - take: " + take);
+//        List<Manga> mangas = (List<Manga>) mangaService.getAllEntities(page, take);
+//        return new ResponseEntity(mangas).toString();
+//    }
+
+    @Override
+    protected void validateRequest(AbstractRequest request) {
+
     }
 
-    public static void main(String[] args) {
-        List<String> strings = Arrays.asList("Trung", "Quang", "Le");
-        System.out.println(strings.subList(0, 1));
-        System.out.println(strings.subList(1, strings.size()));
+    @Override
+    protected String execute(AbstractRequest request) {
+        return null;
     }
 }
