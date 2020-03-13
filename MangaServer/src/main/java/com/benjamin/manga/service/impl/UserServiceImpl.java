@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -21,6 +22,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean isEmailExists(String email) {
         return userRepository.findUsersByEmail(email).isPresent();
+    }
+
+    @Override
+    public User findUserByEmailAndPass(String email, String pass) {
+        Optional<User> user = userRepository.findUserByEmailAndHashPass(email, pass);
+        if (!user.isPresent()){
+            throw new ApplicationException(ResponseCode.WRONG_EMAIL_OR_PASS);
+        }
+        return user.get();
     }
 
     @Override

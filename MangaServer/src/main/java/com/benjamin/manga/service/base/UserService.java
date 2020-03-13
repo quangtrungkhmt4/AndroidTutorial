@@ -6,4 +6,6 @@ public interface UserService extends Service<User> {
 
     boolean isEmailExists(String email);
 
+    User findUserByEmailAndPass(String email, String pass);
+
 }
