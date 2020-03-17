@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,83 +8,90 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
-<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
+    <ScrollView
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:layout_width="wrap_content"
-            android:id="@+id/guideTop"
-            app:layout_constraintGuide_percent="0.06"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content"/>
+                    <androidx.constraintlayout.widget.Guideline
+                        android:layout_width="wrap_content"
+                        android:id="@+id/guideTop"
+                        app:layout_constraintGuide_percent="0.04"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content"/>
 
-        <ImageView
-            android:id="@+id/imgMenu"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/guideTop"
-            android:padding="10dp"
-            android:src="@drawable/ic_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/imgMenu"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/guideTop"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_menu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
 
-        <ImageView
-            android:id="@+id/imgSearch"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/guideTop"
-            android:padding="10dp"
-            android:src="@drawable/ic_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/imgSearch"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/guideTop"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
 
-        <TextView
-            android:layout_marginLeft="15dp"
-            style="?android:attr/textAppearanceMedium"
-            android:id="@+id/tvPopular"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/guideTop"
-            android:text="@string/popular"
-            android:textColor="@color/textPopular"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginLeft="15dp"
+                        style="?android:attr/textAppearanceMedium"
+                        android:id="@+id/tvPopular"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/guideTop"
+                        android:text="@string/popular"
+                        android:textColor="@color/textPopular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
 
-        <androidx.viewpager.widget.ViewPager
-            android:layout_marginTop="5dp"
-            android:id="@+id/viewPagerPopular"
-            app:layout_constraintTop_toBottomOf="@id/tvPopular"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"/>
+                    <androidx.viewpager.widget.ViewPager
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/viewPagerPopular"
+                        app:layout_constraintTop_toBottomOf="@id/tvPopular"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"/>
 
-        <!--        truyen ma-->
-        <TextView
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
-            style="?android:attr/textAppearanceMedium"
-            android:id="@+id/tvFirstCategory"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/viewPagerPopular"
-            android:text="@string/all"
-            android:textColor="@color/textPopular"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="15dp"
-            android:id="@+id/recyclerAll"
-            app:layout_constraintTop_toBottomOf="@id/tvFirstCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <!--        <GridView-->
-        <!--            android:id="@+id/gvAll"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/tvFirstCategory"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:numColumns="2"-->
-        <!--            android:verticalSpacing="5dp"-->
-        <!--            android:horizontalSpacing="5dp"-->
-        <!--            android:layout_height="match_parent"/>-->
+                    <!--        truyen ma-->
+                    <TextView
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="15dp"
+                        style="?android:attr/textAppearanceMedium"
+                        android:id="@+id/tvFirstCategory"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/viewPagerPopular"
+                        android:text="@string/all"
+                        android:textColor="@color/textPopular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
 
 
-<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/recyclerAll"
+                        app:layout_constraintTop_toBottomOf="@id/tvFirstCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <!--        <GridView-->
+                    <!--            android:id="@+id/gvAll"-->
+                    <!--            app:layout_constraintTop_toBottomOf="@id/tvFirstCategory"-->
+                    <!--            android:layout_width="match_parent"-->
+                    <!--            android:numColumns="2"-->
+                    <!--            android:verticalSpacing="5dp"-->
+                    <!--            android:horizontalSpacing="5dp"-->
+                    <!--            android:layout_height="match_parent"/>-->
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</FrameLayout>

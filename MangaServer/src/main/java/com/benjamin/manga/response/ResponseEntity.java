@@ -18,13 +18,13 @@ public class ResponseEntity {
     private Integer code;
 
     @JsonProperty("data")
-    private Object data;
+    private AbstractResponse data;
 
     public ResponseEntity(Integer code) {
         this.code = code;
     }
 
-    public ResponseEntity(Object data) {
+    public ResponseEntity(AbstractResponse data) {
         this.code = ResponseCode.SUCCESS;
         this.data = data;
     }
